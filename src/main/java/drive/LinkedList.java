@@ -35,15 +35,15 @@ public class LinkedList {
         this.Size++;
     }
 
-    public void removeTail(){
-        if (this.Size > 1){
+       // Removes the last node from the list
+    public void removeTail() {
+        if (this.Size > 1) {
             Node newTail = this.Tail.PreviousNode;
             newTail.NextNode = null;
             this.Tail.PreviousNode = null;
             this.Tail = newTail;
             this.Size--;
-        } else if (this.Size == 1){
-            this.Tail.PreviousNode = null;
+        } else if (this.Size == 1) {
             this.Head = this.Tail = null;
             this.Size--;
         }
@@ -63,7 +63,8 @@ public class LinkedList {
         }
     }
 
-    public boolean isEmpty(){
+     // Checks if the list is empty
+    public boolean isEmpty() {
         return this.Size == 0;
     }
 
@@ -71,14 +72,14 @@ public class LinkedList {
         return this.Size;
     }
 
-    @Override 
-    public String toString(){
-        String output = "";
+  // Returns a string representation of the list
+    public String toString() {
+        StringBuilder output = new StringBuilder();
         Node node = this.Head;
-        while(node != null){
-            output += node.Data;
+        while (node != null) {
+            output.append(node.Data);
             node = node.NextNode;
         }
-        return output;
+        return output.toString();
     }
-}
+
